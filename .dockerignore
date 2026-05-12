@@ -1,0 +1,29 @@
+# Files at repo root we don't want in the image
+node_modules
+dist
+.env
+.env.*
+.git
+.github
+.idea
+.vscode
+
+# Server-side
+server/node_modules
+server/dist
+server/test
+
+# Flutter app (not needed in server image)
+app
+
+# Docs
+docs
+
+# Misc
+*.log
+*.md
+.gitignore
+.npmrc
+.pnpmrc
+pnpm-debug.log*
+*.tsbuildinfo

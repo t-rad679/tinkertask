@@ -1,0 +1,34 @@
+# OS
+.DS_Store
+
+# Editor
+.idea/
+.vscode/
+
+# Claude Code local-only state
+.claude/
+.superpowers/
+
+# Env files
+.env
+.env.*
+!*.env.example
+
+# Node
+node_modules/
+dist/
+*.log
+
+# Flutter (for future app/)
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+.pub-cache/
+.pub/
+
+# Docker
+*.local
+
+# OS misc
+Thumbs.db

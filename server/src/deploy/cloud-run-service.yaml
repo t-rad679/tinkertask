@@ -1,0 +1,35 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: tinkertask-backend
+  annotations:
+    run.googleapis.com/launch-stage: GA
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "0"
+        autoscaling.knative.dev/maxScale: "3"
+        run.googleapis.com/cloudsql-instances: PROJECT:REGION:tinkertask-pg
+    spec:
+      containerConcurrency: 40
+      timeoutSeconds: 30
+      containers:
+        - image: REGION-docker.pkg.dev/PROJECT/tinkertask/backend:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: DATABASE_URL
+              valueFrom: { secretKeyRef: { name: tinkertask-db-url, key: latest } }
+            - name: FIREBASE_PROJECT_ID
+              value: PROJECT
+            - name: FIREBASE_CLIENT_EMAIL
+              valueFrom: { secretKeyRef: { name: firebase-admin-email, key: latest } }
+            - name: FIREBASE_PRIVATE_KEY
+              valueFrom: { secretKeyRef: { name: firebase-admin-private-key, key: latest } }
+            - name: AUTH_EMAIL_ALLOWLIST
+              valueFrom: { secretKeyRef: { name: tinkertask-allowlist, key: latest } }
+          resources:
+            limits: { cpu: '1', memory: '512Mi' }

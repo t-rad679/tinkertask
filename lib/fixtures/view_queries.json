@@ -1,0 +1,14 @@
+[
+  {
+    "name": "habits-only",
+    "query": { "filter": { "kind": ["habit"] } },
+    "seed": "default",
+    "expectedTaskTitles": ["Push-ups", "Meditate"]
+  },
+  {
+    "name": "open work tasks",
+    "query": { "filter": { "kind": ["task"], "status": ["open"] } },
+    "seed": "default",
+    "expectedTaskTitles": ["Pay rent", "Reply to Sarah"]
+  }
+]
