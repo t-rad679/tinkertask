@@ -1,5 +1,13 @@
-{{
-  // helpers — runtime; the parser's `options` carries today + timezone
+// Peggy grammar source for capture syntax. Inlined as a String.raw template
+// literal so it ships with the compiled JS — no runtime filesystem lookup, and
+// no codegen step. String.raw preserves the \n/\t/\" escape sequences used in
+// the grammar's character classes; do not switch to a plain template literal.
+// The ${'`'} substitutions inject literal backticks (the grammar uses them in
+// a comment) without terminating the template.
+const BT = '`';
+
+export const CAPTURE_SYNTAX_GRAMMAR = String.raw`{{
+  // helpers — runtime; the parser's ${BT}options${BT} carries today + timezone
   function makeRoot(parts, options) {
     const titleTokens = [];
     let kind = 'task';
@@ -152,3 +160,4 @@ Integer = digits:$([0-9]+) { return parseInt(digits, 10); }
 Weekday = w:$("mon"/"tue"/"wed"/"thu"/"fri"/"sat"/"sun") { return w; }
 IsoDate = $([0-9][0-9][0-9][0-9] "-" [0-9][0-9] "-" [0-9][0-9] ("T" [0-9][0-9] ":" [0-9][0-9])?)
 _ = [ \t]*
+`;
