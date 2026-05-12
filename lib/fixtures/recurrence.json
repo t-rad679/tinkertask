@@ -1,0 +1,8 @@
+[
+  { "name": "daily on Monday", "rec": { "kind": "daily" }, "anchor": "2026-01-01", "from": "2026-05-11", "expected": "2026-05-11" },
+  { "name": "weekdays from Saturday", "rec": { "kind": "weekdays" }, "anchor": "2026-01-01", "from": "2026-05-09", "expected": "2026-05-11" },
+  { "name": "weekly MWF from Tuesday", "rec": { "kind": "weekly", "byweekday": [0, 2, 4] }, "anchor": "2026-01-01", "from": "2026-05-12", "expected": "2026-05-13" },
+  { "name": "monthly 15th from May 11", "rec": { "kind": "monthly", "byday": 15 }, "anchor": "2026-01-01", "from": "2026-05-11", "expected": "2026-05-15" },
+  { "name": "monthly 1st rolls over", "rec": { "kind": "monthly", "byday": 1 }, "anchor": "2026-01-01", "from": "2026-05-11", "expected": "2026-06-01" },
+  { "name": "every 3 days anchored May 1, asking May 11", "rec": { "kind": "every_n_days", "every": 3 }, "anchor": "2026-05-01", "from": "2026-05-11", "expected": "2026-05-13" }
+]

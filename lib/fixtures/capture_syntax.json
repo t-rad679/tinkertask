@@ -1,0 +1,44 @@
+[
+  {
+    "name": "pay rent",
+    "input": "pay rent",
+    "options": { "today": "2026-05-11" },
+    "expected": { "title": "pay rent", "body": null, "kind": "task", "due_at": null, "recurrence": null, "target_value": null, "target_period": null, "tags": [], "scope": null }
+  },
+  {
+    "name": "pay rent monthly 1st",
+    "input": "pay rent repeat:monthly/1 #bills",
+    "options": { "today": "2026-05-11" },
+    "expected": { "title": "pay rent", "body": null, "kind": "task", "due_at": null, "recurrence": { "kind": "monthly", "byday": 1 }, "target_value": null, "target_period": null, "tags": ["bills"], "scope": null }
+  },
+  {
+    "name": "meditate boolean habit",
+    "input": "meditate habit",
+    "options": { "today": "2026-05-11" },
+    "expected": { "title": "meditate", "body": null, "kind": "habit", "due_at": null, "recurrence": null, "target_value": 1, "target_period": "day", "tags": [], "scope": null }
+  },
+  {
+    "name": "push-ups habit with target",
+    "input": "push-ups habit target:50/day",
+    "options": { "today": "2026-05-11" },
+    "expected": { "title": "push-ups", "body": null, "kind": "habit", "due_at": null, "recurrence": null, "target_value": 50, "target_period": "day", "tags": [], "scope": null }
+  },
+  {
+    "name": "workout weekly target",
+    "input": "workout habit target:3/week #fitness",
+    "options": { "today": "2026-05-11" },
+    "expected": { "title": "workout", "body": null, "kind": "habit", "due_at": null, "recurrence": null, "target_value": 3, "target_period": "week", "tags": ["fitness"], "scope": null }
+  },
+  {
+    "name": "reply sarah due friday with body",
+    "input": "reply to sarah due:fri @work -- mention the Q2 budget",
+    "options": { "today": "2026-05-11" },
+    "expected": { "title": "reply to sarah", "body": "mention the Q2 budget", "kind": "task", "due_at": "2026-05-15T00:00:00.000Z", "recurrence": null, "target_value": null, "target_period": null, "tags": [], "scope": "work" }
+  },
+  {
+    "name": "free counter habit",
+    "input": "glasses of water habit target:none",
+    "options": { "today": "2026-05-11" },
+    "expected": { "title": "glasses of water", "body": null, "kind": "habit", "due_at": null, "recurrence": null, "target_value": null, "target_period": null, "tags": [], "scope": null }
+  }
+]
